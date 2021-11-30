@@ -21,6 +21,7 @@
 		ACDE32862756183C0085C104 /* HalfModalInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE32852756183C0085C104 /* HalfModalInteractiveTransition.swift */; };
 		ACDE32882756185E0085C104 /* HalfModalTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE32872756185E0085C104 /* HalfModalTransitionAnimator.swift */; };
 		ACDE328A275634A10085C104 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE3289275634A10085C104 /* NewListViewController.swift */; };
+		ACDE328F27569A920085C104 /* NewListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE328E27569A920085C104 /* NewListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		ACDE32852756183C0085C104 /* HalfModalInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalInteractiveTransition.swift; sourceTree = "<group>"; };
 		ACDE32872756185E0085C104 /* HalfModalTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalTransitionAnimator.swift; sourceTree = "<group>"; };
 		ACDE3289275634A10085C104 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
+		ACDE328E27569A920085C104 /* NewListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				ACDE3280275617340085C104 /* AppNavController.swift */,
 				AC3D298E27553F94005560F7 /* ViewController.swift */,
 				ACDE3289275634A10085C104 /* NewListViewController.swift */,
+				ACDE328E27569A920085C104 /* NewListTableViewCell.swift */,
 				ACDE3282275617D60085C104 /* Transitioning */,
 				ACDE327D275616080085C104 /* Presentation */,
 				AC3D299327553F95005560F7 /* Assets.xcassets */,
@@ -186,6 +189,7 @@
 				ACDE3281275617340085C104 /* AppNavController.swift in Sources */,
 				AC3D298D27553F94005560F7 /* SceneDelegate.swift in Sources */,
 				ACDE32862756183C0085C104 /* HalfModalInteractiveTransition.swift in Sources */,
+				ACDE328F27569A920085C104 /* NewListTableViewCell.swift in Sources */,
 				AC3D29A6275545B9005560F7 /* Country.swift in Sources */,
 				AC3D29A22755450C005560F7 /* TableViewController.swift in Sources */,
 				ACDE327F2756164A0085C104 /* HalfModalPresentationController.swift in Sources */,
@@ -345,7 +349,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -372,7 +376,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

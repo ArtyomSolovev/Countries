@@ -9,15 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let VC = YourSecondViewController()
+    let VC = NewListViewController()
 
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             
             self.tabBarController?.selectedIndex = 0
         }
-        view.backgroundColor = .red
-        
+        view.backgroundColor = .noneç
         let halfModalTransitioningDelegate = HalfModalTransitioningDelegate(viewController: self, presentingViewController: VC)
 
         VC.modalPresentationStyle = .custom
