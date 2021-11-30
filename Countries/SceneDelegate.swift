@@ -24,21 +24,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+class tabBarClass: UITabBarController {
+    
+}
+
 private extension SceneDelegate {
     func createTabs() -> UITabBarController {
-        let tabBar = UITabBarController()
+        let tabBar = tabBarClass()
         let navVC = UINavigationController()
         navVC.viewControllers = [TableViewController()]
-        let secondVC = ViewController()
+        let VC = ViewController()
         navVC.tabBarItem = self.createProfileTab()
-        secondVC.tabBarItem = self.createSkillsTab()
+        VC.tabBarItem = self.createSkillsTab()
 
-        tabBar.setViewControllers([navVC, secondVC], animated: false)
+        tabBar.setViewControllers([navVC, VC], animated: true)
         return tabBar
     }
 
     func createProfileTab() -> UITabBarItem {
         let item = UITabBarItem(title: "Countries", image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
+        item.badgeColor = .red
         return item
     }
 
