@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		775E67F8D31AA1B724F2B15C /* Pods_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688199274FD374944CEAC144 /* Pods_Countries.framework */; };
 		AC3D298B27553F94005560F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D298A27553F94005560F7 /* AppDelegate.swift */; };
 		AC3D298D27553F94005560F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D298C27553F94005560F7 /* SceneDelegate.swift */; };
 		AC3D298F27553F94005560F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D298E27553F94005560F7 /* ViewController.swift */; };
@@ -15,16 +16,17 @@
 		AC3D29A22755450C005560F7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D29A12755450C005560F7 /* TableViewController.swift */; };
 		AC3D29A427554528005560F7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D29A327554528005560F7 /* TableViewCell.swift */; };
 		AC3D29A6275545B9005560F7 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D29A5275545B9005560F7 /* Country.swift */; };
-		ACDE327F2756164A0085C104 /* HalfModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE327E2756164A0085C104 /* HalfModalPresentationController.swift */; };
-		ACDE3281275617340085C104 /* AppNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE3280275617340085C104 /* AppNavController.swift */; };
-		ACDE3284275618010085C104 /* HalfModalTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE3283275618010085C104 /* HalfModalTransitioningDelegate.swift */; };
-		ACDE32862756183C0085C104 /* HalfModalInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE32852756183C0085C104 /* HalfModalInteractiveTransition.swift */; };
-		ACDE32882756185E0085C104 /* HalfModalTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE32872756185E0085C104 /* HalfModalTransitionAnimator.swift */; };
+		AC98432527578E2F0096897A /* ContinentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98432427578E2F0096897A /* ContinentsViewController.swift */; };
+		AC98432727578EC60096897A /* Continet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC98432627578EC60096897A /* Continet.swift */; };
 		ACDE328A275634A10085C104 /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE3289275634A10085C104 /* NewListViewController.swift */; };
 		ACDE328F27569A920085C104 /* NewListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE328E27569A920085C104 /* NewListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5371B75956BCF8CEA9DE0FAF /* Pods-Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.debug.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.debug.xcconfig"; sourceTree = "<group>"; };
+		688199274FD374944CEAC144 /* Pods_Countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83E5FE9377DBB96B304A3AB1 /* Pods-Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.release.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.release.xcconfig"; sourceTree = "<group>"; };
+		AC2566CC2757DF3D009D6FF2 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "../../circular-carousel/Package.swift"; sourceTree = "<group>"; };
 		AC3D298727553F94005560F7 /* Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3D298A27553F94005560F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC3D298C27553F94005560F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,11 +37,8 @@
 		AC3D29A12755450C005560F7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AC3D29A327554528005560F7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AC3D29A5275545B9005560F7 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		ACDE327E2756164A0085C104 /* HalfModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalPresentationController.swift; sourceTree = "<group>"; };
-		ACDE3280275617340085C104 /* AppNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavController.swift; sourceTree = "<group>"; };
-		ACDE3283275618010085C104 /* HalfModalTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalTransitioningDelegate.swift; sourceTree = "<group>"; };
-		ACDE32852756183C0085C104 /* HalfModalInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalInteractiveTransition.swift; sourceTree = "<group>"; };
-		ACDE32872756185E0085C104 /* HalfModalTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalTransitionAnimator.swift; sourceTree = "<group>"; };
+		AC98432427578E2F0096897A /* ContinentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsViewController.swift; sourceTree = "<group>"; };
+		AC98432627578EC60096897A /* Continet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continet.swift; sourceTree = "<group>"; };
 		ACDE3289275634A10085C104 /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
 		ACDE328E27569A920085C104 /* NewListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,17 +48,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775E67F8D31AA1B724F2B15C /* Pods_Countries.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B590082B59A9AA604F320A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC2566CC2757DF3D009D6FF2 /* Package.swift */,
+				688199274FD374944CEAC144 /* Pods_Countries.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AA1AE2EF374121D2236F675 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5371B75956BCF8CEA9DE0FAF /* Pods-Countries.debug.xcconfig */,
+				83E5FE9377DBB96B304A3AB1 /* Pods-Countries.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AC3D297E27553F94005560F7 = {
 			isa = PBXGroup;
 			children = (
 				AC3D298927553F94005560F7 /* Countries */,
 				AC3D298827553F94005560F7 /* Products */,
+				9AA1AE2EF374121D2236F675 /* Pods */,
+				4B590082B59A9AA604F320A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,15 +96,11 @@
 			children = (
 				AC3D298A27553F94005560F7 /* AppDelegate.swift */,
 				AC3D298C27553F94005560F7 /* SceneDelegate.swift */,
-				AC3D29A12755450C005560F7 /* TableViewController.swift */,
 				AC3D29A5275545B9005560F7 /* Country.swift */,
-				AC3D29A327554528005560F7 /* TableViewCell.swift */,
-				ACDE3280275617340085C104 /* AppNavController.swift */,
-				AC3D298E27553F94005560F7 /* ViewController.swift */,
-				ACDE3289275634A10085C104 /* NewListViewController.swift */,
-				ACDE328E27569A920085C104 /* NewListTableViewCell.swift */,
-				ACDE3282275617D60085C104 /* Transitioning */,
-				ACDE327D275616080085C104 /* Presentation */,
+				AC98432627578EC60096897A /* Continet.swift */,
+				AC98432127578D6C0096897A /* MainTable */,
+				AC98432327578DA30096897A /* New Group */,
+				AC98432227578D900096897A /* NewList */,
 				AC3D299327553F95005560F7 /* Assets.xcassets */,
 				AC3D299527553F95005560F7 /* LaunchScreen.storyboard */,
 				AC3D299827553F95005560F7 /* Info.plist */,
@@ -92,22 +108,31 @@
 			path = Countries;
 			sourceTree = "<group>";
 		};
-		ACDE327D275616080085C104 /* Presentation */ = {
+		AC98432127578D6C0096897A /* MainTable */ = {
 			isa = PBXGroup;
 			children = (
-				ACDE327E2756164A0085C104 /* HalfModalPresentationController.swift */,
+				AC3D29A12755450C005560F7 /* TableViewController.swift */,
+				AC3D29A327554528005560F7 /* TableViewCell.swift */,
 			);
-			path = Presentation;
+			path = MainTable;
 			sourceTree = "<group>";
 		};
-		ACDE3282275617D60085C104 /* Transitioning */ = {
+		AC98432227578D900096897A /* NewList */ = {
 			isa = PBXGroup;
 			children = (
-				ACDE3283275618010085C104 /* HalfModalTransitioningDelegate.swift */,
-				ACDE32872756185E0085C104 /* HalfModalTransitionAnimator.swift */,
-				ACDE32852756183C0085C104 /* HalfModalInteractiveTransition.swift */,
+				ACDE3289275634A10085C104 /* NewListViewController.swift */,
+				ACDE328E27569A920085C104 /* NewListTableViewCell.swift */,
 			);
-			path = Transitioning;
+			path = NewList;
+			sourceTree = "<group>";
+		};
+		AC98432327578DA30096897A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D298E27553F94005560F7 /* ViewController.swift */,
+				AC98432427578E2F0096897A /* ContinentsViewController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,15 +142,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC3D299B27553F95005560F7 /* Build configuration list for PBXNativeTarget "Countries" */;
 			buildPhases = (
+				8C4A787752416CBE5F82E410 /* [CP] Check Pods Manifest.lock */,
 				AC3D298327553F94005560F7 /* Sources */,
 				AC3D298427553F94005560F7 /* Frameworks */,
 				AC3D298527553F94005560F7 /* Resources */,
+				837BDF519CDCB6E5DA7DBBF8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Countries;
+			packageProductDependencies = (
+			);
 			productName = Countries;
 			productReference = AC3D298727553F94005560F7 /* Countries.app */;
 			productType = "com.apple.product-type.application";
@@ -175,24 +204,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		837BDF519CDCB6E5DA7DBBF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Countries/Pods-Countries-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Countries/Pods-Countries-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Countries/Pods-Countries-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C4A787752416CBE5F82E410 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Countries-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC3D298327553F94005560F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AC3D29A427554528005560F7 /* TableViewCell.swift in Sources */,
-				ACDE32882756185E0085C104 /* HalfModalTransitionAnimator.swift in Sources */,
+				AC98432527578E2F0096897A /* ContinentsViewController.swift in Sources */,
 				AC3D298F27553F94005560F7 /* ViewController.swift in Sources */,
 				ACDE328A275634A10085C104 /* NewListViewController.swift in Sources */,
-				ACDE3284275618010085C104 /* HalfModalTransitioningDelegate.swift in Sources */,
 				AC3D298B27553F94005560F7 /* AppDelegate.swift in Sources */,
-				ACDE3281275617340085C104 /* AppNavController.swift in Sources */,
 				AC3D298D27553F94005560F7 /* SceneDelegate.swift in Sources */,
-				ACDE32862756183C0085C104 /* HalfModalInteractiveTransition.swift in Sources */,
+				AC98432727578EC60096897A /* Continet.swift in Sources */,
 				ACDE328F27569A920085C104 /* NewListTableViewCell.swift in Sources */,
 				AC3D29A6275545B9005560F7 /* Country.swift in Sources */,
 				AC3D29A22755450C005560F7 /* TableViewController.swift in Sources */,
-				ACDE327F2756164A0085C104 /* HalfModalPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +396,7 @@
 		};
 		AC3D299C27553F95005560F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5371B75956BCF8CEA9DE0FAF /* Pods-Countries.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -355,6 +424,7 @@
 		};
 		AC3D299D27553F95005560F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83E5FE9377DBB96B304A3AB1 /* Pods-Countries.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

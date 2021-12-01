@@ -19,6 +19,13 @@ class NewListViewController: UIViewController {
         return tableView
     }()
     
+    private let nameTextField: UITextField = {
+        let nameTextField = UITextField()
+        nameTextField.textAlignment = .center
+        nameTextField.backgroundColor = .white
+        return nameTextField
+    }()
+    
     private var cancelButton : UIButton = {
         let button = UIButton()
         button.setTitle("Отмена", for: .normal)
@@ -72,17 +79,13 @@ class NewListViewController: UIViewController {
         textLabel3.text  = "Цвет списка"
         textLabel3.textAlignment = .center
         
-        let textLabel4 = UITextField()
-        textLabel4.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-//        textLabel4.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-        textLabel4.textAlignment = .center
-        textLabel4.backgroundColor = .white
+        nameTextField.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         
-        let textLabel5 = UITextField()
-        textLabel5.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        let fullNaeTextField = UITextField()
+        fullNaeTextField.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
 //        textLabel5.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-        textLabel5.textAlignment = .center
-        textLabel5.backgroundColor = .white
+        fullNaeTextField.textAlignment = .center
+        fullNaeTextField.backgroundColor = .white
         
         let textLabel6 = UILabel()
         textLabel6.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
@@ -98,7 +101,7 @@ class NewListViewController: UIViewController {
         verticalStackView.spacing   = 10.0
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let verticalStackView2   = UIStackView(arrangedSubviews: [textLabel4, textLabel5, textLabel6])
+        let verticalStackView2   = UIStackView(arrangedSubviews: [nameTextField, fullNaeTextField, textLabel6])
         verticalStackView2.axis  = NSLayoutConstraint.Axis.vertical
         verticalStackView2.distribution  = UIStackView.Distribution.equalSpacing
         verticalStackView2.alignment = UIStackView.Alignment.center

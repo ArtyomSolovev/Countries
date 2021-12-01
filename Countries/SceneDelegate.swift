@@ -36,8 +36,9 @@ private extension SceneDelegate {
         let VC = ViewController()
         navVC.tabBarItem = self.createProfileTab()
         VC.tabBarItem = self.createSkillsTab()
+        let x = ContinentsViewController()
 
-        tabBar.setViewControllers([navVC, VC], animated: true)
+        tabBar.setViewControllers([navVC, VC,  x], animated: true)
         return tabBar
     }
 
