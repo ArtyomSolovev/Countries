@@ -9,11 +9,24 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    var continent = Continent()
     var array = Country.data
     private var switcher = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefaults = UserDefaults.standard
+//        userDefaults.set(false, forKey: "firstDownload")
+        let appWasViewed = userDefaults.bool(forKey: "firstDownload")
+        if appWasViewed == false{
+            print("Save first data")
+            userDefaults.set(true, forKey: "firstDownload")
+            DispatchQueue.main.async {
+                self.continent.saveContinent()
+            }
+        }
+        
         self.tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.id)
         configureItem()
     }

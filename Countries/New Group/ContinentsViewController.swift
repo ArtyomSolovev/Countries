@@ -48,13 +48,14 @@ class ContinentsViewController: UIViewController, iCarouselDataSource, iCarousel
     @objc func info(){
         if x.currentItemIndex == 0 {
             let x = NewListViewController()
+            x.modalPresentationStyle = .fullScreen
             present(x, animated: true, completion: nil)
         }
     }
     
     let x:iCarousel = {
         let x = iCarousel()
-        x.type = .rotary
+        x.type = .cylinder
         return x
     }()
     
@@ -65,13 +66,20 @@ class ContinentsViewController: UIViewController, iCarouselDataSource, iCarousel
 //                self.x.currentItemIndex = 1
 //            }
 //        }
+        
         view.backgroundColor = .blue
         view.addSubview(x)
+//        configureCarousel()
         x.dataSource = self
         x.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 300)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        if x.currentItemIndex == 0{
+            UIView.animate(withDuration: 0.1) {
+                self.x.currentItemIndex = 1
+            }
+        }
         print("?????",x.currentItemIndex)
     }
 }

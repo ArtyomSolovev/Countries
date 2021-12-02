@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		775E67F8D31AA1B724F2B15C /* Pods_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688199274FD374944CEAC144 /* Pods_Countries.framework */; };
+		AC2500E72758BDA600D323FD /* ColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2500E62758BDA600D323FD /* ColorTableViewController.swift */; };
+		AC2500E92758BFC700D323FD /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2500E82758BFC700D323FD /* ColorTableViewCell.swift */; };
+		AC2500EC2758E8F200D323FD /* ExtentionUIColor.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2500EB2758E8F200D323FD /* ExtentionUIColor.swift.swift */; };
+		AC2500EE2758EA7B00D323FD /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2500ED2758EA7B00D323FD /* StorageManager.swift */; };
 		AC3D298B27553F94005560F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D298A27553F94005560F7 /* AppDelegate.swift */; };
 		AC3D298D27553F94005560F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D298C27553F94005560F7 /* SceneDelegate.swift */; };
 		AC3D298F27553F94005560F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D298E27553F94005560F7 /* ViewController.swift */; };
@@ -26,6 +30,10 @@
 		5371B75956BCF8CEA9DE0FAF /* Pods-Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.debug.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.debug.xcconfig"; sourceTree = "<group>"; };
 		688199274FD374944CEAC144 /* Pods_Countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E5FE9377DBB96B304A3AB1 /* Pods-Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.release.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.release.xcconfig"; sourceTree = "<group>"; };
+		AC2500E62758BDA600D323FD /* ColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorTableViewController.swift; path = Countries/NewList/ColorTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		AC2500E82758BFC700D323FD /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
+		AC2500EB2758E8F200D323FD /* ExtentionUIColor.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionUIColor.swift.swift; sourceTree = "<group>"; };
+		AC2500ED2758EA7B00D323FD /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AC2566CC2757DF3D009D6FF2 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "../../circular-carousel/Package.swift"; sourceTree = "<group>"; };
 		AC3D298727553F94005560F7 /* Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3D298A27553F94005560F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,9 +81,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AC2500EA2758D4D400D323FD /* ColorTable */ = {
+			isa = PBXGroup;
+			children = (
+				AC2500E62758BDA600D323FD /* ColorTableViewController.swift */,
+				AC2500E82758BFC700D323FD /* ColorTableViewCell.swift */,
+			);
+			name = ColorTable;
+			sourceTree = "<group>";
+		};
 		AC3D297E27553F94005560F7 = {
 			isa = PBXGroup;
 			children = (
+				AC2500ED2758EA7B00D323FD /* StorageManager.swift */,
 				AC3D298927553F94005560F7 /* Countries */,
 				AC3D298827553F94005560F7 /* Products */,
 				9AA1AE2EF374121D2236F675 /* Pods */,
@@ -98,6 +116,7 @@
 				AC3D298C27553F94005560F7 /* SceneDelegate.swift */,
 				AC3D29A5275545B9005560F7 /* Country.swift */,
 				AC98432627578EC60096897A /* Continet.swift */,
+				AC2500EB2758E8F200D323FD /* ExtentionUIColor.swift.swift */,
 				AC98432127578D6C0096897A /* MainTable */,
 				AC98432327578DA30096897A /* New Group */,
 				AC98432227578D900096897A /* NewList */,
@@ -120,6 +139,7 @@
 		AC98432227578D900096897A /* NewList */ = {
 			isa = PBXGroup;
 			children = (
+				AC2500EA2758D4D400D323FD /* ColorTable */,
 				ACDE3289275634A10085C104 /* NewListViewController.swift */,
 				ACDE328E27569A920085C104 /* NewListTableViewCell.swift */,
 			);
@@ -254,12 +274,16 @@
 				AC3D29A427554528005560F7 /* TableViewCell.swift in Sources */,
 				AC98432527578E2F0096897A /* ContinentsViewController.swift in Sources */,
 				AC3D298F27553F94005560F7 /* ViewController.swift in Sources */,
+				AC2500EE2758EA7B00D323FD /* StorageManager.swift in Sources */,
 				ACDE328A275634A10085C104 /* NewListViewController.swift in Sources */,
+				AC2500EC2758E8F200D323FD /* ExtentionUIColor.swift.swift in Sources */,
 				AC3D298B27553F94005560F7 /* AppDelegate.swift in Sources */,
+				AC2500E92758BFC700D323FD /* ColorTableViewCell.swift in Sources */,
 				AC3D298D27553F94005560F7 /* SceneDelegate.swift in Sources */,
 				AC98432727578EC60096897A /* Continet.swift in Sources */,
 				ACDE328F27569A920085C104 /* NewListTableViewCell.swift in Sources */,
 				AC3D29A6275545B9005560F7 /* Country.swift in Sources */,
+				AC2500E72758BDA600D323FD /* ColorTableViewController.swift in Sources */,
 				AC3D29A22755450C005560F7 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

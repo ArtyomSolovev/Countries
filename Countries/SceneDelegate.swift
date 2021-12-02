@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let scene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: scene)
@@ -36,9 +35,8 @@ private extension SceneDelegate {
         let VC = ViewController()
         navVC.tabBarItem = self.createProfileTab()
         VC.tabBarItem = self.createSkillsTab()
-        let x = ContinentsViewController()
 
-        tabBar.setViewControllers([navVC, VC,  x], animated: true)
+        tabBar.setViewControllers([navVC, VC], animated: true)
         return tabBar
     }
 
