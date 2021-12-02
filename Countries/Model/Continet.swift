@@ -8,7 +8,8 @@
 import UIKit
 import RealmSwift
 
-class Continent: Object{
+final class Continent: Object{
+    
     @objc dynamic var name: String = ""
     @objc dynamic var fullName: String = ""
     @objc dynamic var color: String = ""
@@ -23,11 +24,11 @@ class Continent: Object{
     }
     
     func saveContinent() {
-        let country = Country(name: "Нижний Новгород", yearOfFoundation: 1221)
+        let nullContinent = Continent()
+        StorageManager.saveObject(nullContinent)
         let list = List<Country>()
-        list.append(country)
+        list.append(objectsIn: Country.data)
         let continent = Continent(name: "Евразия", fullName: "Евразия", color: "#FF0000", arrayOfCountry: list)
-        
         StorageManager.saveObject(continent)
     }
 }

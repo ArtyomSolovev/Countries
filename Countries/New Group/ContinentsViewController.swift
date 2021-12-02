@@ -7,94 +7,65 @@
 
 import UIKit
 import iCarousel
+import RealmSwift
 
-class ContinentsViewController: UIViewController, iCarouselDataSource, iCarouselDelegate{
+final class ContinentsViewController: UIViewController, iCarouselDataSource, iCarouselDelegate{
     
-    func numberOfItems(in carousel: iCarousel) -> Int {
-        10
-    }
-    func carousel(_ carousel: iCarousel, shouldSelectItemAt index: Int) -> Bool {
-        print(index)
-        return true
-    }
-    func carousel(_ carousel: iCarousel, shouldSelectItemAt index: Int) {
-        UIView.animate(withDuration: 0.3) {
-            self.x.currentItemIndex = 1
-        }
-        print("@Q@")
-        print(index)
-        let x = ViewController()
-        present(x, animated: true, completion: nil)
-        
-    }
-    func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
-        UIView.animate(withDuration: 0.3) {
-            self.x.currentItemIndex = 1
-        }
-        print("@@@")
-        print(index)
-        let x = ViewController()
-        present(x, animated: true, completion: nil)
-        
-    }
-    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let view =  UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        view.addTarget(self, action: #selector(info), for: .touchUpInside)
-        view.layer.cornerRadius = view.bounds.height/2
-        view.backgroundColor = .random()
-        if index == 0{view.backgroundColor = .white}
-        return view
-    }
-    @objc func info(){
-        if x.currentItemIndex == 0 {
-            let x = NewListViewController()
-            x.modalPresentationStyle = .fullScreen
-            present(x, animated: true, completion: nil)
-        }
-    }
+    weak var ContinentDelegate: ContinentDelegate?
     
-    let x:iCarousel = {
-        let x = iCarousel()
-        x.type = .cylinder
-        return x
+    private var continents: Results<Continent>!
+     
+    // MARK: UI
+    
+    private let carousel : iCarousel = {
+        let carousel = iCarousel()
+        carousel.type = .cylinder
+        return carousel
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            UIView.animate(withDuration: 0.3) {
-//                self.x.currentItemIndex = 1
-//            }
-//        }
-        
-        view.backgroundColor = .blue
-        view.addSubview(x)
-//        configureCarousel()
-        x.dataSource = self
-        x.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 300)
+        view.backgroundColor = .systemGray2
+        view.addSubview(carousel)
+        continents = realm.objects(Continent.self)
+        carousel.dataSource = self
+        carousel.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 300)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if x.currentItemIndex == 0{
+        if carousel.currentItemIndex == 0{
             UIView.animate(withDuration: 0.1) {
-                self.x.currentItemIndex = 1
+                self.carousel.currentItemIndex = 1
             }
         }
-        print("?????",x.currentItemIndex)
+        self.ContinentDelegate?.update(numberOfContinent: self.carousel.currentItemIndex)
     }
-}
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    
+    // MARK: iCarouselDelegate
+    
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        let view =  UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        if index == 0 {
+            view.addTarget(self, action: #selector(action), for: .touchUpInside)
+            view.setImage(UIImage(systemName: "plus"), for: .normal)
+        }
+        view.layer.cornerRadius = view.bounds.height/2
+        view.backgroundColor = .init(hex: continents[index].color)
+        if index == 0{view.backgroundColor = .white}
+        return view
     }
-}
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(
-           red:   .random(),
-           green: .random(),
-           blue:  .random(),
-           alpha: 1.0
-        )
+    
+    @objc func action(){
+        if carousel.currentItemIndex == 0 {
+            let vc = NewListViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: iCarouselDataSource
+    
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        continents.count
     }
 }

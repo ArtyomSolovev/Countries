@@ -7,20 +7,27 @@
 
 import UIKit
 
-class ColorTableViewController: UITableViewController {
+final class ColorTableViewController: UITableViewController {
 
-    private var array: [UIColor] = [.init(hex: "#FF0000")!, .orange, .yellow, .green, .cyan, .blue, .purple]
+    private let hexOfColor = ["#FF0000", "#FFA500", "#FFFF00", "#00FF00", "#00FFFF", "#0000FF", "#800080"]
+    private var arrayOfColor = [UIColor]()
     
     weak var colorDelegate: ColorDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureArray()
         self.tableView.register(ColorTableViewCell.self, forCellReuseIdentifier: ColorTableViewCell.id)
         self.tableView.isScrollEnabled = false
     }
 
     override func viewWillLayoutSubviews() {
         preferredContentSize = CGSize(width: 250, height: self.tableView.contentSize.height)
+    }
+    
+    private func configureArray() {
+        hexOfColor.forEach { arrayOfColor.append((.init(hex: $0 ) ?? .white))
+        }
     }
     
     // MARK: - Table view data source
@@ -30,13 +37,13 @@ class ColorTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        array.count
+        arrayOfColor.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ColorTableViewCell.id, for: indexPath) as! ColorTableViewCell
 
-        cell.backgroundColor = self.array[indexPath.row]
+        cell.backgroundColor = self.arrayOfColor[indexPath.row]
 
         return cell
     }
@@ -45,7 +52,7 @@ class ColorTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dismiss(animated: true) {
-            self.colorDelegate?.update(colorButton: self.array[indexPath.row])
+            self.colorDelegate?.update(colorButton: self.hexOfColor[indexPath.row])
             self.dismiss(animated: true, completion: nil)
         }
     }

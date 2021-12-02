@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
@@ -23,20 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
-class tabBarClass: UITabBarController {
-    
-}
-
 private extension SceneDelegate {
     func createTabs() -> UITabBarController {
-        let tabBar = tabBarClass()
-        let navVC = UINavigationController()
-        navVC.viewControllers = [TableViewController()]
-        let VC = ViewController()
-        navVC.tabBarItem = self.createProfileTab()
-        VC.tabBarItem = self.createSkillsTab()
+        let tabBar = UITabBarController()
+        let tableVC = TableViewController()
+        let SecondVC = ViewController()
+        tableVC.tabBarItem = self.createProfileTab()
+        SecondVC.tabBarItem = self.createSkillsTab()
 
-        tabBar.setViewControllers([navVC, VC], animated: true)
+        tabBar.setViewControllers([tableVC, SecondVC], animated: true)
         return tabBar
     }
 

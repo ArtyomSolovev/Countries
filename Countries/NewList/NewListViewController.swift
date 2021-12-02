@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol ColorDelegate: AnyObject {
-    func update(colorButton: UIColor)
+    func update(colorButton: String)
 }
 
-class NewListViewController: UIViewController {
+class NewListViewController: UIViewController, UITextFieldDelegate {
     
-    var array = Country.data + Country.data
-    let tableColor = ColorTableViewController()
+    private var array = Country.data
+    private let tableColor = ColorTableViewController()
     private let heightOfScreen = UIScreen.main.bounds.height
     private let widthOfScreen = UIScreen.main.bounds.width
+    private var colorOfButton = "#000000"
+    
+    // MARK: UI
     
     private let topLabel: UILabel = {
         let toplabel = UILabel()
@@ -39,7 +43,7 @@ class NewListViewController: UIViewController {
         return nameTextField
     }()
     
-    private let fullNaeTextField: UITextField = {
+    private let fullNameTextField: UITextField = {
         let fullNaeTextField = UITextField()
         fullNaeTextField.layer.cornerRadius = 5
         fullNaeTextField.textAlignment = .center
@@ -49,6 +53,8 @@ class NewListViewController: UIViewController {
     
     private var cancelButton : UIButton = {
         let button = UIButton()
+        button.layer.cornerRadius = 5
+        button.backgroundColor = .darkGray
         button.setTitle("Отмена", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
@@ -61,14 +67,57 @@ class NewListViewController: UIViewController {
     
     private var okeyButton : UIButton = {
         let button = UIButton()
+        button.layer.cornerRadius = 5
+        button.alpha = 0.1
+        button.isEnabled = false
+        button.backgroundColor = .darkGray
         button.setTitle("Ok", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(okeyAction), for: .touchUpInside)
         return button
     }()
     
+    private func checkLabels(){
+        if  fullNameTextField.text != "" && nameTextField.text != "" && colorOfButton != "#000000" && tableIsEmpty() {
+            okeyButton.alpha = 1
+            okeyButton.isEnabled = true
+        }
+    }
+    
+    func tableIsEmpty() -> Bool{
+        for item in 0...array.count {
+            let indexPath = IndexPath(row: item, section: 0)
+            let cell = tableWithCountries.cellForRow(at: indexPath) as? NewListTableViewCell
+            if cell?.accessoryType == .checkmark{
+                return true
+            }
+        }
+        return false
+    }
+    
     @objc func okeyAction(sender: UIButton) {
+        saveNewContinent()
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func saveNewContinent() {
+        
+        let arrayOfCountry = List<Country>()
+        
+        for item in 0...array.count {
+            let indexPath = IndexPath(row: item, section: 0)
+            let cell = tableWithCountries.cellForRow(at: indexPath) as? NewListTableViewCell
+            if cell?.accessoryType == .checkmark{
+                arrayOfCountry.append(Country(name: (cell?.object?.name)!, yearOfFoundation: cell?.object!.yearOfFoundation ?? 0))
+            }
+        }
+        let newContinent = Continent(name: nameTextField.text!,
+                                     fullName: fullNameTextField.text!,
+                                     color: colorOfButton,
+                                     arrayOfCountry: arrayOfCountry)
+        
+        StorageManager.saveObject(newContinent)
+        
     }
     
     var buttonColor : UIButton = {
@@ -90,43 +139,55 @@ class NewListViewController: UIViewController {
         tableColor.preferredContentSize = CGSize(width: 250, height: 250)
         present(tableColor, animated: true)
     }
+
+    private let textLabel1 : UILabel = {
+        let textLabel = UILabel()
+        textLabel.text  = "Короткое имя списка"
+        textLabel.textAlignment = .center
+        return textLabel
+    }()
     
+    private let textLabel2 : UILabel = {
+        let textLabel = UILabel()
+        textLabel.text  = "Длинное имя списка"
+        textLabel.textAlignment = .center
+        return textLabel
+    }()
+    
+
+    private let textLabel3 : UILabel = {
+        let textLabel = UILabel()
+        textLabel.text  = "Цвет списка"
+        textLabel.textAlignment = .center
+        return textLabel
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .lightGray
+        self.nameTextField.delegate = self
+        self.fullNameTextField.delegate = self
         
+        view.addSubview(topLabel)
         topLabel.center.x = view.center.x
         topLabel.frame = CGRect(x: 0, y: heightOfScreen/10, width: self.view.frame.width, height: 20)
-        view.addSubview(topLabel)
         
-        let textLabel = UILabel()
-        textLabel.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        textLabel.text  = "Короткое имя списка"
-        textLabel.textAlignment = .center
-        
-        let textLabel2 = UILabel()
-        textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        textLabel2.text  = "Длинное имя списка"
-        textLabel2.textAlignment = .center
-        
-        let textLabel3 = UILabel()
+        textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width/2).isActive = true
+        textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width/2).isActive = true
         textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width/2).isActive = true
-        textLabel3.text  = "Цвет списка"
-        textLabel3.textAlignment = .center
-        
         nameTextField.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         buttonColor.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        fullNaeTextField.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        fullNameTextField.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         
         //verticalStackView
-        let verticalStackView   = UIStackView(arrangedSubviews: [textLabel, textLabel2, textLabel3])
+        let verticalStackView   = UIStackView(arrangedSubviews: [textLabel1, textLabel2, textLabel3])
         verticalStackView.axis  = NSLayoutConstraint.Axis.vertical
         verticalStackView.distribution  = UIStackView.Distribution.equalSpacing
         verticalStackView.alignment = UIStackView.Alignment.center
         verticalStackView.spacing   = 10.0
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let verticalStackView2   = UIStackView(arrangedSubviews: [nameTextField, fullNaeTextField, buttonColor])
+        let verticalStackView2   = UIStackView(arrangedSubviews: [nameTextField, fullNameTextField, buttonColor])
         verticalStackView2.axis  = NSLayoutConstraint.Axis.vertical
         verticalStackView2.distribution  = UIStackView.Distribution.equalSpacing
         verticalStackView2.alignment = UIStackView.Alignment.center
@@ -146,8 +207,8 @@ class NewListViewController: UIViewController {
             StackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             StackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             StackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -widthOfScreen/20),
-//            StackView.heightAnchor.constraint(equalToConstant: 100)
         ])
+        
         self.view.addSubview(tableWithCountries)
         tableWithCountries.frame = CGRect(x: 0, y: view.bounds.height/3, width: view.bounds.width, height: view.bounds.height/2)
         tableWithCountries.dataSource = self
@@ -159,16 +220,8 @@ class NewListViewController: UIViewController {
         
         self.view.addSubview(cancelButton)
         self.view.addSubview(okeyButton)
-        
-        cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -widthOfScreen/4).isActive = true
-        cancelButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/5).isActive = true
-        cancelButton.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/10).isActive = true
-        cancelButton.topAnchor.constraint(equalTo: tableWithCountries.bottomAnchor, constant: heightOfScreen/20).isActive = true
-        
-        okeyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: widthOfScreen/4).isActive = true
-        okeyButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/5).isActive = true
-        okeyButton.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/10).isActive = true
-        okeyButton.topAnchor.constraint(equalTo: tableWithCountries.bottomAnchor, constant: heightOfScreen/20).isActive = true
+        setupCancelButton()
+        setupOkeyButton()
 
     }
     
@@ -186,11 +239,17 @@ class NewListViewController: UIViewController {
         okeyButton.topAnchor.constraint(equalTo: tableWithCountries.bottomAnchor, constant: heightOfScreen/20).isActive = true
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        checkLabels()
+        self.view.endEditing(true)
+        return false
+    }
 }
 
 extension NewListViewController: ColorDelegate{
-    func update(colorButton: UIColor) {
-        buttonColor.backgroundColor = colorButton
+    func update(colorButton: String) {
+        colorOfButton = colorButton
+        buttonColor.backgroundColor = .init(hex: colorOfButton)
     }
 }
 
@@ -199,6 +258,7 @@ extension NewListViewController: UIPopoverPresentationControllerDelegate{
         return .none
     }
 }
+
 extension NewListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableWithCountries.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
@@ -206,7 +266,7 @@ extension NewListViewController: UITableViewDelegate{
         } else{
             tableWithCountries.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-//        tableWithCountries.cellForRow(at: indexPath)?.isHighlighted = true
+        checkLabels()
     }
     
 }

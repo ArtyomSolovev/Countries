@@ -6,18 +6,27 @@
 //
 
 import UIKit
+import RealmSwift
 
-class TableViewController: UITableViewController {
+protocol ContinentDelegate: AnyObject {
+    func update(numberOfContinent: Int)
+}
 
-    var continent = Continent()
-    var array = Country.data
-    private var switcher = false
+final class TableViewController: UITableViewController {
+    
+    private var continents: Results<Continent>!
+    private var continent = Continent()
+    private var array = [Country]()
+    var currectContinent: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        continents = realm.objects(Continent.self)
+        viewControllerToPresent.ContinentDelegate = self
+        
+        // Save in first downloud
         let userDefaults = UserDefaults.standard
-//        userDefaults.set(false, forKey: "firstDownload")
         let appWasViewed = userDefaults.bool(forKey: "firstDownload")
         if appWasViewed == false{
             print("Save first data")
@@ -28,7 +37,13 @@ class TableViewController: UITableViewController {
         }
         
         self.tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.id)
-        configureItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        array = []
+        print("currectContinent", currectContinent)
+        continents[currectContinent].arrayOfCountry.forEach {array.append($0)}
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -38,7 +53,7 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        array.count
+        return continents.isEmpty ? 0 : array.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,22 +62,6 @@ class TableViewController: UITableViewController {
         cell.object = self.array[indexPath.row]
 
         return cell
-    }
-    
-    private func configureItem(){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .edit,
-            target: self,
-            action: #selector(edit))
-    }
-
-    @objc func edit() {
-        switcher.toggle()
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3) {
-                self.isEditing = self.switcher
-            }
-        }
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -78,19 +77,12 @@ class TableViewController: UITableViewController {
         array.insert(elementToMove, at: to.row)
     }
 
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+}
+
+extension TableViewController: ContinentDelegate{
+    
+    func update(numberOfContinent: Int) {
+        self.currectContinent = numberOfContinent
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

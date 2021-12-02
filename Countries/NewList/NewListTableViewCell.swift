@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewListTableViewCell: UITableViewCell {
+final class NewListTableViewCell: UITableViewCell {
     
     static let id = "NewListCell"
     

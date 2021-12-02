@@ -90,10 +90,29 @@
 			name = ColorTable;
 			sourceTree = "<group>";
 		};
+		AC2500EF27594CCC00D323FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D29A5275545B9005560F7 /* Country.swift */,
+				AC98432627578EC60096897A /* Continet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC2500F027594CDF00D323FD /* SupportingFile */ = {
+			isa = PBXGroup;
+			children = (
+				AC2500EB2758E8F200D323FD /* ExtentionUIColor.swift.swift */,
+				AC3D298A27553F94005560F7 /* AppDelegate.swift */,
+				AC3D298C27553F94005560F7 /* SceneDelegate.swift */,
+				AC2500ED2758EA7B00D323FD /* StorageManager.swift */,
+			);
+			path = SupportingFile;
+			sourceTree = "<group>";
+		};
 		AC3D297E27553F94005560F7 = {
 			isa = PBXGroup;
 			children = (
-				AC2500ED2758EA7B00D323FD /* StorageManager.swift */,
 				AC3D298927553F94005560F7 /* Countries */,
 				AC3D298827553F94005560F7 /* Products */,
 				9AA1AE2EF374121D2236F675 /* Pods */,
@@ -112,11 +131,8 @@
 		AC3D298927553F94005560F7 /* Countries */ = {
 			isa = PBXGroup;
 			children = (
-				AC3D298A27553F94005560F7 /* AppDelegate.swift */,
-				AC3D298C27553F94005560F7 /* SceneDelegate.swift */,
-				AC3D29A5275545B9005560F7 /* Country.swift */,
-				AC98432627578EC60096897A /* Continet.swift */,
-				AC2500EB2758E8F200D323FD /* ExtentionUIColor.swift.swift */,
+				AC2500F027594CDF00D323FD /* SupportingFile */,
+				AC2500EF27594CCC00D323FD /* Model */,
 				AC98432127578D6C0096897A /* MainTable */,
 				AC98432327578DA30096897A /* New Group */,
 				AC98432227578D900096897A /* NewList */,

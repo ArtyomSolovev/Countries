@@ -11,10 +11,6 @@ extension UIColor {
     convenience init?(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
-        
-        // #007600
-        // 007600
-        
         let length = hexSanitized.count
         
         var rgb: UInt64 = 0

@@ -11,6 +11,8 @@ class TableViewCell: UITableViewCell {
 
     static let id = "Cell"
     
+    // MARK: UI
+    
     private let nameOfTheCity : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

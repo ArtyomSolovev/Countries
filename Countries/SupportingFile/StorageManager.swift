@@ -9,7 +9,7 @@ import RealmSwift
 
 let realm = try! Realm()
 
-class StorageManager {
+final class StorageManager {
     static func saveObject(_ continent: Continent ){
         try! realm.write({
             realm.add(continent)

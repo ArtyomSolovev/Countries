@@ -7,8 +7,6 @@
 
 import UIKit
 
-class ColorTableViewCell: UITableViewCell {
-    
+final class ColorTableViewCell: UITableViewCell {
     static let id = "ColorTableViewCell"
-
 }
